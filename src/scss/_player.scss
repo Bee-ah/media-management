@@ -5,13 +5,19 @@
         font-size: 20px;
     }
 
-    position: relative;
+    position: relative;//para poder trabalhar com absolute dos controls
     display: flex;
     width: max-content;
     height: max-content;
     justify-content: center;
     align-items: center;
     margin: 4rem auto;
+
+    &:hover {
+        .controls{
+            opacity: 1;
+        } 
+    }
 
     video {
         width: 600px;
@@ -25,13 +31,9 @@
         width: 100%;
         display: flex;
         justify-content: space-around;
-        opacity: 0.2;
-        padding: 1rem;
+        opacity: 0.0;
+        padding: 0.5rem;
         transition: opacity 0.4s;
-    
-        &:hover {
-            opacity: 1;
-        }
     
         button {
             background: transparent;
@@ -39,24 +41,22 @@
             font-weight: bolder;
             text-shadow: 2px 1px 2px #000;
             border: none;
-            cursor: pointer;
+            cursor: pointer;//cursor muda
         }
     
         .timeline {
-            flex: 1;
+            flex: 0.9;//referente ao espaço disponível
             display: flex;
             align-items: center;
             border: none;
-            border-right: 2px solid #ccc;
-            border-left: 2px solid #ccc;
     
             .bar{
-                background: #e00;
+                background: rgba(248, 245, 245, 0.4);
                 height: 4px;
-                flex: 1;
+                flex: 1; // ocupurá todo o espaço disponível
     
                 .inner{
-                    background: #ccc;
+                    background: #e00;
                     width: 0%;
                     height: 100%;
                 }

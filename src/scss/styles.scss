@@ -20,15 +20,20 @@ h1 {
 }
 
 #imagens {
+    h2{
+        margin-bottom: 1.5rem;
+    }
     .container {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        max-width: 100%;
+        flex-wrap: wrap; //define se os itens vão quebrar ou não a linha, por padrão vão além do limite de conteudo
+        justify-content: center;
+        max-width: 80%;
         margin: 0 auto;
-        
+        column-gap: 30px;
+        row-gap: 5px;
+
         img {
-            height: 200px;
+            height: 180px;
             width: auto;
             margin: 5px;
             object-fit: fill;
@@ -36,77 +41,131 @@ h1 {
             border: 1px solid #333;
 
             &:hover {
-                opacity: 75%;
+                filter: sepia(70%);
                 border-color: #33f;
             }
         }
-
     }
-
 }
+
 header {
-    background-color: $color-bg-default;
+    background-image: linear-gradient(rgba(13, 240, 80, 0.5), rgba(5, 30, 55,1.0));
     width: 100vw;
     position: relative;
     height: 50vh;
     overflow: hidden;
 
     h1 {
-        margin-top: 4rem;
+        margin-top: 6rem;
         position: relative;
         z-index: 9;
     }
 }
-
-.waves {
-    bottom: 0;
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: 110%;
-
-    .wave-01 {
-        animation: wave1 3s ease-in-out infinite alternate;
-        
-    }
-
-    .wave-02 {
-        animation: wave2 3s ease-in-out infinite alternate;
-    }
-
-    .wave-03 {
-        animation: dash1 3s cubic-bezier(0, 1.23, 1, 0.11) infinite alternate;
-        stroke-dasharray: 150;
-        stroke: #fff;
-        stroke-width: 3px;
-    }
+section{
+    margin:2rem;
 }
 
-@keyframes wave1 {
-    from {
-        transform: translateX(-50px);
-    }
+.jellyfish{
+    position:absolute;
+    top: 52vh;
+}
+.fish-1 , .fish-2 {
+    animation-name: move1, move2;
+    animation-timing-function: cubic-bezier(.07,.57,.63,.05);
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
+
+}
+.fish-1{
+    left:calc(7*100vw/8);
+    animation-duration: 7s;
+}
+.fish-2{
+    left:calc(2*100vw/8);
+    animation-duration: 3s;
+}
+.fish-3{
+    left:calc(100vw/8);   
+    animation-duration: 2s;
+    animation-delay: -3s;
+}
+.fish-3 , .fish-5{
+    animation-name: movex , movey;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+}
+.fish-4 , .fish-7{
+
+    animation-name: x , y;
+    animation-timing-function: cubic-bezier(.64,-0.31,.39,.6);
+    animation-iteration-count: infinite;
+}
+.fish-4{
+    left:calc(3*100vw/8);
+    animation-duration: 4s;
+    animation-delay: -1s;
+}
+.fish-5{
+    left:calc(4.5*100vw/8);
+    animation-duration: 6s;
+    animation-delay: -3s;
+}
+.fish-6{
+    left:calc(5.7*100vw/8);
+    animation-name: movex , movey;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+
+    animation-delay: 1s;
+}
+.fish-7{
+    left:calc(6.2*100vw/8);
+    animation-duration: 7s;
+    animation-delay: -5s;
+}
+.fish-8{
+    left:calc(3.5*100vw/8);
+    animation-name: movex1 , movey1;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 4s;
+
+    animation-delay: -3s;
 }
 
-@keyframes wave2 {
-    from {
-        transform: translateX(-100px);
-    }
+
+//movimento das águas-vivas
+@keyframes move1 {
+    to { transform: translateX(-306px); }
+  }
+@keyframes move2 {
+    to { transform: translateY(-65vh); }
 }
 
-@keyframes wave3 {
-    from {
-        transform: translateX(-20px);
+@keyframes movex {
+  
+    50%{
+        transform: translateX(200px)
     }
+    100% { transform: translateX(-266px); }
 }
+@keyframes movey {
+    to { transform: translateY(-65vh); }
+} 
 
-@keyframes dash1 {
-    from {
-       stroke-dashoffset: 2000;
-    }
-    to {
-        stroke-dashoffset: 0;
-    }
+@keyframes x {
+    to { transform: translateX(-175px); }
 }
+@keyframes y {
+    to { transform: translateY(-65vh); }
+}
+@keyframes movex1 {
+    to{ transform: translateX(100px); }
+}
+@keyframes movey1 {
+    to { transform: translateY(-65vh); }
+} 
 
 @import 'player';
